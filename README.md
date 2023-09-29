@@ -2,7 +2,7 @@ Thank you for downloading SCRIBE!
 
 In order to use SCRIBE you will first need to compile the program. Depending on the OS you're using, will determine the steps you need to take.
 
-First, regardless of your OS version you will need to have these pre-requisites: 
+First, regardless of your OS you will need to have these pre-requisites: 
 1. Python 3.11.4 or below (there is a issue in python 3.11.5 with the module pyimod2_importers). You can install python 3.11.4 using this link: https://www.python.org/downloads/release/python-3114/ (Scroll down to Files to find download). Make sure to check the "Add to Path" box at the start of the installation.
 2. pip (latest version should be installed with python 3.11.4)
 
