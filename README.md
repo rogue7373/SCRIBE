@@ -7,8 +7,8 @@ First, regardless of your OS you will need to have these pre-requisites:
 2. pip (latest version should be installed with python 3.11.4)
 
 To install the next modules, you will need to open the commmand line. 
-On Windows - Press the Windows Key + R and type CMD then press enter.
-On Mac - In the Finder , open the /Applications/Utilities folder, then double-click Terminal.
+* On Windows - Press the Windows Key + R and type CMD then press enter.
+* On Mac - In the Finder , open the /Applications/Utilities folder, then double-click Terminal.
 
 1. Install pyperclip. In the command line window type in pip install pyperclip --trusted-host pypi.org --trusted-host files.pythonhosted.org
 2. Then, install tzdata. In the command line window type in pip install tzdata --trusted-host pypi.org --trusted-host files.pythonhosted.org
