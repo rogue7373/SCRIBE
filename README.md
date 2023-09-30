@@ -15,11 +15,9 @@ To install the next modules, you will need to open the commmand line.
 
 Windows: 
 If you're using Windows, you will also need auto-py-to-exe. To install, using the command line window type in pip install auto-py-to-exe --trusted-host pypi.org --trusted-host files.pythonhosted.org
-
-Follow the instrustions here: https://pypi.org/project/auto-py-to-exe/
+* Follow the instrustions here: https://pypi.org/project/auto-py-to-exe/
 
 Mac: 
 If you're using Mac, you will also need py2app. To install, using the terminal type in pip install py2app.
-
-Follow the instructions here: https://pypi.org/project/py2app/
+* Follow the instructions here: https://pypi.org/project/py2app/
 
