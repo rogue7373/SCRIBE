@@ -7,8 +7,9 @@ First, regardless of your OS you will need to have these pre-requisites:
 2. pip (latest version should be installed with python 3.11.4)
 
 To install the next modules, you will need to open the commmand line. Press the Windows Key + R and type CMD then press enter.
-3. Install pyperclip. In the command line window type in pip install pyperclip --trusted-host pypi.org --trusted-host files.pythonhosted.org
-5. Then, install tzdata. In the command line window type in pip install tzdata --trusted-host pypi.org --trusted-host files.pythonhosted.org
+
+1. Install pyperclip. In the command line window type in pip install pyperclip --trusted-host pypi.org --trusted-host files.pythonhosted.org
+2. Then, install tzdata. In the command line window type in pip install tzdata --trusted-host pypi.org --trusted-host files.pythonhosted.org
 
 Windows: 
 If you're using Windows, you will also need auto-py-to-exe. To install, using the command line window type in pip install auto-py-to-exe --trusted-host pypi.org --trusted-host files.pythonhosted.org
