@@ -22,9 +22,6 @@ master_window = Tk()
 buttons_frame = Frame(master_window)
 buttons_frame.grid(row=5, column=0, sticky=W+E)    
 
-#toolbuttons_frame = Frame(master_window)
-#toolbuttons_frame.grid(row=2,column=0,sticky=W+N)
-
 group = LabelFrame(master_window, text="ISO Format: YYYY-MM-DD HH:mm:SS", padx=5, pady=5)
 group.grid(row=1, column=0, columnspan=3, padx=10, pady=10, sticky=E+W+N+S)
 
@@ -39,9 +36,6 @@ txtbox.grid(row=0, column=0, sticky=E+W+N+S)
 
 label = tk.Label(master_window,text="SCRIBE",font='none 24 bold')
 label.grid(row=0, column=0, sticky=W+E)
-
-#colorbutton = Button(toolbuttons_frame,text="Color",width=20,font="none 10 bold")
-#colorbutton.grid(row=2,column=1,sticky=W+N)
 
 clrbutton = Button(buttons_frame,text="COPY & CLEAR",width=20,command=clear_text,font="none 15 bold")
 clrbutton.grid(row=5, column=0, sticky=E+W+N+S)
