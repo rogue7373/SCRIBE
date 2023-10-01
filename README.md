@@ -1,4 +1,4 @@
-Thank you for downloading SCRIBE!
+Thank you for downloading SCRIBE! Scribe is a notetaking tool that provides an updated timestamp in the ISO format in the PST timezone. Press copy & clear to copy the notes to your clipboard so you can paste them elsewhere. You can also paste them back in, select the text on-screen and paste your clipboard for a seamless handoff.
 
 In order to use SCRIBE you will first need to compile the program. Depending on the OS you're using, will determine the steps you need to take.
 
