@@ -10,6 +10,7 @@ darkmode_on = False
 
 def insert_timestamp(event):
     pacifictime = datetime.now(ZoneInfo('America/Los_Angeles')).replace(tzinfo=None)
+    txtbox.config(wrap=WORD,tabstyle="tabular",font="none 12 bold")
     txtbox.insert(tk.INSERT, "\n" + str(pacifictime.isoformat(sep=" ",timespec="seconds")) + " >>> ")
     return "break"
 
