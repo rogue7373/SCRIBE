@@ -10,8 +10,9 @@ darkmode_on = False
 
 def insert_timestamp(event):
     pacifictime = datetime.now(ZoneInfo('America/Los_Angeles')).replace(tzinfo=None)
-    txtbox.config(wrap=WORD,tabstyle="tabular",font="none 12 bold")
+    txtbox.config(bg="white",foreground="black",background="white",selectbackground="grey",insertbackground="black",font="none 12 bold")
     txtbox.insert(tk.INSERT, "\n" + str(pacifictime.isoformat(sep=" ",timespec="seconds")) + " >>> ")
+    
     return "break"
 
 def clear_text():
@@ -24,7 +25,6 @@ def clear_text():
 def darkmode_selector():
     global darkmode_on
     if darkmode_on:
-        print("darkmode is on, turning off")
         root.config(bg="white",background="white")
         group.config(bg="white",foreground="black",background="white")
         label.config(bg="white",foreground="black",background="white")
@@ -32,11 +32,10 @@ def darkmode_selector():
         toolbuttons_frame.config(bg="white",background="white",padx=20)
         buttons_frame.config(bg="white",background="white")
         clrbutton.config(bg="white",foreground="black",background="white")
-        txtbox.config(bg="white",foreground="black",background="white",selectbackground="grey")
+        txtbox.config(bg="white",foreground="black",background="white",selectbackground="grey",insertbackground="black")
         buttons_frame.config(bg="white",background="white")
         darkmode_on = False
     else:
-        print("darkmode is off, turning on")
         root.config(bg="black",background="black")
         label.config(bg="black",foreground="white",background="black")
         toolbuttons_frame.config(bg="white",background="black",padx=20)
@@ -44,7 +43,7 @@ def darkmode_selector():
         darkmodebutton.config(bg="black",foreground="white",background="black",text="Light")
         buttons_frame.config(bg="black",background="black")
         clrbutton.config(bg="black",foreground="white",background="black")
-        txtbox.config(bg="black",foreground="white",background="black",selectbackground="grey")
+        txtbox.config(bg="black",foreground="white",background="black",selectbackground="grey",insertbackground="white")
         buttons_frame.config(bg="black",background="black")
         darkmode_on = True
 
@@ -52,7 +51,7 @@ def darkmode_selector():
 root = Tk()
 root.configure(bg="white")
 root.title("SCRIBE")
-root.geometry("500x500")
+root.geometry("640x360")
 
 buttons_frame = Frame(root,bg="white")
 buttons_frame.grid(row=3,sticky=S)    
@@ -71,6 +70,7 @@ group.columnconfigure(0, weight=1)
 
 txtbox = scrolledtext.ScrolledText(group, width=40, height=10)
 txtbox.grid(row=0, column=0, sticky=E+W+N+S)
+txtbox.config(font="none 12")
 
 label = tk.Label(root,text="SCRIBE",font='none 24 bold', foreground="black",bg="white")
 label.grid(row=0, column=0, sticky=W+E)
