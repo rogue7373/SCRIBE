@@ -26,25 +26,23 @@ def darkmode_selector():
     global darkmode_on
     if darkmode_on:
         root.config(bg="white",background="white")
-        group.config(bg="white",foreground="black",background="white")
         label.config(bg="white",foreground="black",background="white")
+        group.config(bg="white",foreground="black",background="white")
         darkmodebutton.config(bg="white",foreground="black",background="white",text="Dark")
-        toolbuttons_frame.config(bg="white",background="white",padx=20)
         buttons_frame.config(bg="white",background="white")
+        toolbuttons_frame.config(bg="white",background="white",padx=20)
         clrbutton.config(bg="white",foreground="black",background="white")
         txtbox.config(bg="white",foreground="black",background="white",selectbackground="grey",insertbackground="black")
-        buttons_frame.config(bg="white",background="white")
         darkmode_on = False
     else:
         root.config(bg="black",background="black")
         label.config(bg="black",foreground="white",background="black")
-        toolbuttons_frame.config(bg="white",background="black",padx=20)
         group.config(bg="black",foreground="white",background="black")
         darkmodebutton.config(bg="black",foreground="white",background="black",text="Light")
         buttons_frame.config(bg="black",background="black")
+        toolbuttons_frame.config(bg="white",background="black",padx=20)
         clrbutton.config(bg="black",foreground="white",background="black")
         txtbox.config(bg="black",foreground="white",background="black",selectbackground="grey",insertbackground="white")
-        buttons_frame.config(bg="black",background="black")
         darkmode_on = True
 
 
