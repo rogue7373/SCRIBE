@@ -5,6 +5,9 @@ import pyperclip
 from zoneinfo import ZoneInfo
 from datetime import datetime
 
+global darkmode_on
+darkmode_on = False
+
 def insert_timestamp(event):
     pacifictime = datetime.now(ZoneInfo('America/Los_Angeles')).replace(tzinfo=None)
     txtbox.insert(tk.INSERT, "\n" + str(pacifictime.isoformat(sep=" ",timespec="seconds")) + " >>> ")
@@ -17,16 +20,50 @@ def clear_text():
     insert_timestamp(None)
     return "break"
 
-master_window = Tk()
+def darkmode_selector():
+    global darkmode_on
+    if darkmode_on:
+        print("darkmode is on, turning off")
+        root.config(bg="white",background="white")
+        group.config(bg="white",foreground="black",background="white")
+        label.config(bg="white",foreground="black",background="white")
+        darkmodebutton.config(bg="white",foreground="black",background="white",text="Dark")
+        toolbuttons_frame.config(bg="white",background="white",padx=20)
+        buttons_frame.config(bg="white",background="white")
+        clrbutton.config(bg="white",foreground="black",background="white")
+        txtbox.config(bg="white",foreground="black",background="white",selectbackground="grey")
+        buttons_frame.config(bg="white",background="white")
+        darkmode_on = False
+    else:
+        print("darkmode is off, turning on")
+        root.config(bg="black",background="black")
+        label.config(bg="black",foreground="white",background="black")
+        toolbuttons_frame.config(bg="white",background="black",padx=20)
+        group.config(bg="black",foreground="white",background="black")
+        darkmodebutton.config(bg="black",foreground="white",background="black",text="Light")
+        buttons_frame.config(bg="black",background="black")
+        clrbutton.config(bg="black",foreground="white",background="black")
+        txtbox.config(bg="black",foreground="white",background="black",selectbackground="grey")
+        buttons_frame.config(bg="black",background="black")
+        darkmode_on = True
 
-buttons_frame = Frame(master_window)
-buttons_frame.grid(row=5, column=0, sticky=W+E)    
 
-group = LabelFrame(master_window, text="ISO Format: YYYY-MM-DD HH:mm:SS", padx=5, pady=5)
+root = Tk()
+root.configure(bg="white")
+root.title("SCRIBE")
+root.geometry("500x500")
+
+buttons_frame = Frame(root,bg="white")
+buttons_frame.grid(row=3,sticky=S)    
+
+toolbuttons_frame = Frame(root,bg="white",background="white",padx=20)
+toolbuttons_frame.grid(row=3,column=2)
+
+group = LabelFrame(root, text="  YYYY-MM-DD HH:mm:SS", padx=5, pady=5, bg="white", foreground="grey")
 group.grid(row=1, column=0, columnspan=3, padx=10, pady=10, sticky=E+W+N+S)
 
-master_window.columnconfigure(0, weight=1)
-master_window.rowconfigure(1, weight=1)
+root.columnconfigure(0, weight=1)
+root.rowconfigure(1, weight=1)
 
 group.rowconfigure(0, weight=1)
 group.columnconfigure(0, weight=1)
@@ -34,14 +71,17 @@ group.columnconfigure(0, weight=1)
 txtbox = scrolledtext.ScrolledText(group, width=40, height=10)
 txtbox.grid(row=0, column=0, sticky=E+W+N+S)
 
-label = tk.Label(master_window,text="SCRIBE",font='none 24 bold')
+label = tk.Label(root,text="SCRIBE",font='none 24 bold', foreground="black",bg="white")
 label.grid(row=0, column=0, sticky=W+E)
 
-clrbutton = Button(buttons_frame,text="COPY & CLEAR",width=20,command=clear_text,font="none 15 bold")
-clrbutton.grid(row=5, column=0, sticky=E+W+N+S)
+darkmodebutton = Button(toolbuttons_frame,width=7,font="none 10 bold",foreground="black",bg="white",command=darkmode_selector,text="Dark")
+darkmodebutton.grid(row=1,column=0,sticky=E+N)
+
+clrbutton = Button(buttons_frame,text="COPY",width=15,command=clear_text,font="none 10 bold",foreground="black",bg="white")
+clrbutton.grid(pady=10, padx=25)
 
 txtbox.bind("<Return>",insert_timestamp)
 
 insert_timestamp(None)
 
-mainloop()
+root.mainloop()
