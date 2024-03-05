@@ -4,6 +4,7 @@ from datetime import datetime
 
 def main(page: ft.Page):
     page.window_title_bar_hidden = True
+    page.window_movable = True
     page.window_resizable = True
     page.window_min_height = 600
     page.window_min_width = 320
@@ -17,7 +18,7 @@ def main(page: ft.Page):
     
     def create_input_field():
         input_field = ft.TextField(
-            min_lines=30,max_lines=30, autocorrect=True, hint_text="Start scribing!",
+            min_lines=20,max_lines=20, autocorrect=True, hint_text="Start scribing!",
             enable_suggestions=True, multiline=True,shift_enter=True, on_submit=insert_timestamp,show_cursor=True,on_focus=insert_timestamp
             )
         return input_field
@@ -36,7 +37,7 @@ def main(page: ft.Page):
         tabs=[prefabtab],
         expand=1,
     )
-    page.add(t,ft.IconButton(icon="ADD",on_click=add_tabs))
+    page.add(t)
 
 
-ft.app(target=main,view=ft.AppView.WEB_BROWSER)
+ft.app(target=main)
