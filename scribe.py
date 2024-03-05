@@ -4,6 +4,7 @@ from datetime import datetime
 
 def main(page: ft.Page):
     page.window_title_bar_hidden = True
+    page.window_movable = True
     page.window_resizable = True
     page.window_min_height = 600
     page.window_min_width = 320
@@ -39,4 +40,8 @@ def main(page: ft.Page):
     page.add(t)
 
 
+<<<<<<< HEAD
 ft.app(target=main)
+=======
+ft.app(target=main)
+>>>>>>> 4080556a117db48b2c2b4a2ca325a5a324d55925
