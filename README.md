@@ -14,6 +14,7 @@ To install the next modules, you will need to open the commmand line / terminal.
 
 1. Install pyperclip. In the command line window type in pip install pyperclip --trusted-host pypi.org --trusted-host files.pythonhosted.org
 2. Then, install tzdata. In the command line window type in pip install tzdata --trusted-host pypi.org --trusted-host files.pythonhosted.org
+3. Then, install flet. In the command line window type in pip install flet --trusted-host pypi.org --trusted-host files.pythonhosted.org
 
 Windows: 
 If you're using Windows, you will also need auto-py-to-exe. To install, using the command line window type in pip install auto-py-to-exe --trusted-host pypi.org --trusted-host files.pythonhosted.org
