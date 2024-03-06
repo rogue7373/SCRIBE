@@ -6,13 +6,24 @@ from datetime import datetime
 class program():
 
     def main(page: ft.Page):
-        page.window_title_bar_hidden = True
+        page.window_title_bar_buttons_hidden = True
         page.window_resizable = True
-        page.window_min_height = 600
+        page.window_min_height = 680
         page.window_min_width = 320
         page.window_opacity = .95
         page.auto_scroll = True
 
+    def main(page: ft.Page):
+        def pick_files_result(e: ft.FilePickerResultEvent):
+            selected_files.value = (
+                ", ".join(map(lambda f: f.name, e.files)) if e.files else "Cancelled!"
+            )
+            selected_files.update()
+
+        pick_files_dialog = ft.FilePicker(on_result=pick_files_result)
+        selected_files = ft.Text()
+
+        page.overlay.append(pick_files_dialog)
         
         def insert_timestamp(event):
             pacifictime = datetime.now(ZoneInfo('America/Los_Angeles')).replace(tzinfo=None).isoformat(sep=" ",timespec="seconds")
@@ -48,21 +59,31 @@ class program():
 
         def check_item_clicked(e):
                     e.control.checked = not e.control.checked
+                    add_tab(e)
+                    e.control.checked = not e.control.checked
                     page.update()
 
         page.appbar = ft.AppBar(
-            leading=ft.Icon(ft.icons.NOTE_ALT),
-            leading_width=40,
-            title=ft.Text("eBim Scribe"),
-            center_title=True,
-            bgcolor=ft.colors.SURFACE_VARIANT,
-            actions=[
-                ft.IconButton(ft.icons.PLAYLIST_ADD, on_click=add_tab),
-                ft.IconButton(ft.icons.PLAYLIST_REMOVE, on_click=close_tab),
-                ft.IconButton(ft.icons.CLOSE, on_click=close_app),
-                
-            ],
-        )
+        leading=ft.PopupMenuButton(tooltip="Create Notes",icon=ft.icons.NOTE_ALT,items=[ft.PopupMenuItem(text="Add Tab",checked=False,on_click=add_tab),
+                    ft.PopupMenuItem(),
+                    ft.PopupMenuItem(text="Remove Tab",checked=False,on_click=close_tab),
+                    ]),
+        leading_width=50,
+        title=ft.Text("eBim SCRIBE"),
+        center_title=True,
+        bgcolor=ft.colors.SURFACE_VARIANT,
+        actions=[
+            # ft.PopupMenuButton(icon=ft.icons.SAVE_ALT,tooltip="Save Notes",
+            #     items=[
+            #         ft.PopupMenuItem(),
+            #         ft.PopupMenuItem(text="Save Tabs",checked=False,on_click=lambda _: pick_files_dialog.pick_files(
+            #             allow_multiple=True
+            #         ))
+            #     ]
+            # ),
+        ],
+    )
+
         tabs_control = ft.Tabs(
             selected_index=0,
             animation_duration=300,
