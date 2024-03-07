@@ -71,7 +71,7 @@ def main(page: ft.Page):
                 page.update()
 
     page.appbar = ft.AppBar(
-    leading=ft.PopupMenuButton(tooltip="Create Tab",icon=ft.icons.NOTE_ADD,items=[ft.PopupMenuItem(text="Add Tab",checked=False,on_click=add_tab),
+    leading=ft.PopupMenuButton(tooltip="Menu",icon=ft.icons.MENU,items=[ft.PopupMenuItem(text="Add Tab",checked=False,on_click=add_tab),
                 ft.PopupMenuItem(),
                 ft.PopupMenuItem(text="Remove Tab",checked=False,on_click=close_tab),
                 ]),
