@@ -4,23 +4,10 @@ from zoneinfo import ZoneInfo
 from datetime import datetime
 
 def main(page: ft.Page):
-    page.window_frameless = True
     page.window_min_height = 680
     page.window_min_width = 320
     page.auto_scroll = True
 
-def main(page: ft.Page):
-    def pick_files_result(e: ft.FilePickerResultEvent):
-        selected_files.value = (
-            ", ".join(map(lambda f: f.name, e.files)) if e.files else "Cancelled!"
-        )
-        selected_files.update()
-
-    pick_files_dialog = ft.FilePicker(on_result=pick_files_result)
-    selected_files = ft.Text()
-
-    page.overlay.append(pick_files_dialog)
-def main(page: ft.Page):
     def pick_files_result(e: ft.FilePickerResultEvent):
         selected_files.value = (
             ", ".join(map(lambda f: f.name, e.files)) if e.files else "Cancelled!"
